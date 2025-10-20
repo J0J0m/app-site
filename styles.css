@@ -1,0 +1,216 @@
+/* PALETA DE CORES GERAL HAIKYUU */
+:root {
+    /* KARASUNO (Corvo) */
+    --karasuno-black: #3C3F4C;
+    --karasuno-orange: #F49030;
+    
+    /* NEKOMA (Gato - Vermelho e Preto) */
+    --nekoma-red: #CC0000;
+    --nekoma-highlight: #ff6666;
+
+    /* AOBA JOHSAI (Seijoh - Turquesa) */
+    --seijoh-blue: #6BB8AE;
+    --seijoh-highlight: #8CDDCE;
+
+    /* SHIRATORIZAWA (Vinho/Roxo) */
+    --shira-purple: #763D60; 
+    --shira-highlight: #9D5483;
+
+    /* FUKURODANI (Coruja - Preto e Dourado) */
+    --fukuro-black: #404040;
+    --fukuro-gold: #B8860B;
+
+    /* Cores Comuns */
+    --background-light: #F3F0EE; 
+    --text-dark: #2c2c2c;
+}
+
+/* -------------------- ESTILO GERAL E GRID -------------------- */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    padding: 20px;
+}
+
+.store-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--karasuno-black); 
+}
+
+/* (O CSS do header e do product-grid permanece o mesmo) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* -------------------- ESTILO BASE DO CARD -------------------- */
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; 
+    border: 3px solid transparent; /* Adicionado para ser usado como destaque */
+}
+
+/* -------------------- EFEITOS DE MOVIMENTO COMUM -------------------- */
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.03); /* Levanta mais para destacar */
+}
+
+.image-container {
+    height: 350px; 
+    overflow: hidden;
+    position: relative;
+    border-bottom: 5px solid; /* A cor será definida pela classe do time abaixo */
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1); 
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 1.3em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* -------------------- ESTILOS ESPECÍFICOS POR TIME -------------------- */
+
+/* KARASUNO - Laranja */
+.product-card.karasuno .image-container {
+    border-bottom-color: var(--karasuno-orange);
+}
+.product-card.karasuno .product-price {
+    color: var(--karasuno-orange);
+}
+.product-card.karasuno .buy-button {
+    background-color: var(--karasuno-orange);
+}
+.product-card.karasuno .buy-button:hover {
+    background-color: var(--karasuno-black);
+    color: white;
+}
+.product-card.karasuno:hover {
+    box-shadow: 0 12px 30px rgba(244, 144, 48, 0.5); /* Sombra Laranja */
+}
+
+/* NEKOMA - Vermelho/Carmesim */
+.product-card.nekoma .image-container {
+    border-bottom-color: var(--nekoma-red);
+}
+.product-card.nekoma .product-price {
+    color: var(--nekoma-red);
+}
+.product-card.nekoma .buy-button {
+    background-color: var(--nekoma-red);
+}
+.product-card.nekoma .buy-button:hover {
+    background-color: var(--nekoma-highlight);
+    color: black;
+}
+.product-card.nekoma:hover {
+    box-shadow: 0 12px 30px rgba(204, 0, 0, 0.5); /* Sombra Vermelha */
+}
+
+/* AOBA JOHSAI - Turquesa */
+.product-card.aoba-johsai .image-container {
+    border-bottom-color: var(--seijoh-blue);
+}
+.product-card.aoba-johsai .product-price {
+    color: var(--seijoh-blue);
+}
+.product-card.aoba-johsai .buy-button {
+    background-color: var(--seijoh-blue);
+}
+.product-card.aoba-johsai .buy-button:hover {
+    background-color: #4A9A92;
+    color: white;
+}
+.product-card.aoba-johsai:hover {
+    box-shadow: 0 12px 30px rgba(107, 184, 174, 0.5); /* Sombra Turquesa */
+}
+
+/* SHIRATORIZAWA - Roxo/Vinho */
+.product-card.shiratorizawa .image-container {
+    border-bottom-color: var(--shira-purple);
+}
+.product-card.shiratorizawa .product-price {
+    color: var(--shira-purple);
+}
+.product-card.shiratorizawa .buy-button {
+    background-color: var(--shira-purple);
+}
+.product-card.shiratorizawa .buy-button:hover {
+    background-color: var(--shira-highlight);
+    color: white;
+}
+.product-card.shiratorizawa:hover {
+    box-shadow: 0 12px 30px rgba(118, 61, 96, 0.5); /* Sombra Vinho */
+}
+
+/* FUKURODANI - Preto/Dourado */
+.product-card.fukurodani .image-container {
+    border-bottom: 5px solid var(--fukuro-black); /* Borda primária preta */
+}
+/* Adiciona uma linha dourada sutil como borda */
+.product-card.fukurodani {
+    border: 3px solid var(--fukuro-gold); 
+}
+.product-card.fukurodani .product-price {
+    color: var(--fukuro-gold);
+    text-shadow: 0 0 5px rgba(184, 134, 11, 0.8); /* Brilho dourado */
+}
+.product-card.fukurodani .buy-button {
+    background-color: var(--fukuro-black);
+}
+.product-card.fukurodani .buy-button:hover {
+    background-color: var(--fukuro-gold);
+    color: var(--fukuro-black);
+    box-shadow: 0 6px 15px rgba(184, 134, 11, 0.8);
+}
+.product-card.fukurodani:hover {
+    box-shadow: 0 12px 30px rgba(64, 64, 64, 0.5); /* Sombra Sutil */
+}
+
+/* -------------------- ESTILO DO BOTÃO COMUM -------------------- */
+.buy-button {
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buy-button:hover {
+    transform: scale(1.05);
+}

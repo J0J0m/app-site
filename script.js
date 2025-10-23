@@ -18,26 +18,30 @@
         const productName = buttonElement.getAttribute('data-name');
         const price = parseFloat(buttonElement.getAttribute('data-price'));
 
-        // 2. Cria o objeto do novo item
-        const newItem = {
-            name: productName,
-            price: price,
-            quantity: 1 // Simplificação: sempre adiciona 1 item por clique
-        };
+        // Se o preço não for válido (NaN), interrompe a função para evitar erros
+        if (isNaN(price)) {
+            console.error("Erro: Preço inválido no data-price para " + productName);
+            return;
+        }
 
-        // 3. Adiciona (ou encontra e incrementa) o item
+        // 2. Adiciona (ou encontra e incrementa) o item
         let found = cart.find(item => item.name === productName);
 
         if (found) {
             found.quantity++;
         } else {
+            const newItem = {
+                name: productName,
+                price: price,
+                quantity: 1
+            };
             cart.push(newItem);
         }
 
-        // 4. Atualiza a interface
+        // 3. Atualiza a interface
         updateCartDisplay();
         
-        // 5. Feedback visual (animação)
+        // 4. Feedback visual (animação)
         cartIconElement.classList.add('flash-cart');
         setTimeout(() => {
             cartIconElement.classList.remove('flash-cart');

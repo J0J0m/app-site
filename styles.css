@@ -151,6 +151,7 @@ body {
 .product-card.fukurodani .buy-button:hover { background-color: var(--fukuro-gold); color: var(--fukuro-black); box-shadow: 0 6px 15px rgba(184, 134, 11, 0.8); }
 .product-card.fukurodani:hover { box-shadow: 0 12px 30px rgba(64, 64, 64, 0.5); }
 
+
 /* -------------------- ESTILO DO BOTÃO COMUM -------------------- */
 .buy-button {
     color: white;

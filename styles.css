@@ -1,171 +1,96 @@
-/* PALETA DE CORES GERAL HAIKYUU */
-:root {
-    --karasuno-black: #3C3F4C;
-    --karasuno-orange: #F49030;
-    --nekoma-red: #CC0000;
-    --nekoma-highlight: #ff6666;
-    --seijoh-blue: #6BB8AE;
-    --seijoh-highlight: #8CDDCE;
-    --shira-purple: #763D60; 
-    --shira-highlight: #9D5483;
-    --fukuro-black: #404040;
-    --fukuro-gold: #B8860B;
-    --background-light: #F3F0EE; 
-    --text-dark: #2c2c2c;
-}
+/* Estilos para o Carrinho (Side-Panel) */
 
-/* -------------------- ESTILO GERAL E GRID -------------------- */
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-light);
-    color: var(--text-dark);
-    padding: 20px;
-}
-
-.store-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 3px solid var(--karasuno-black); 
-    position: relative; /* Essencial para o posicionamento do carrinho */
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* -------------------- ESTILO DO CARRINHO -------------------- */
-
-.cart-icon {
-    position: absolute;
-    top: 25px;
-    right: 50px; 
-    font-size: 1.8em;
-    cursor: pointer;
-    color: var(--karasuno-black);
-    transition: transform 0.2s ease;
-}
-
-.cart-icon:hover {
-    transform: scale(1.1);
-}
-
-.counter {
-    background-color: var(--nekoma-red); 
-    color: white;
-    font-size: 0.5em;
-    padding: 3px 6px;
-    border-radius: 50%; 
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    font-weight: bold;
-    pointer-events: none; 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-/* -------------------- ESTILO BASE DO CARD E ANIMAÇÕES -------------------- */
-
-.product-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.4s ease, box-shadow 0.4s ease; 
-    border: 3px solid transparent; 
-}
-
-/* ANIMAÇÃO DE MOVIMENTO DO CARD */
-.product-card:hover {
-    transform: translateY(-8px) scale(1.03); 
-}
-
-.image-container {
-    height: 350px; 
-    overflow: hidden;
-    position: relative;
-    border-bottom: 5px solid;
-}
-
-.product-image {
-    width: 100%;
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
     height: 100%;
-    object-fit: cover; 
-    transition: transform 0.5s ease;
-}
-
-/* ANIMAÇÃO DE ZOOM NA IMAGEM */
-.product-card:hover .product-image {
-    transform: scale(1.1); 
-}
-
-.product-info {
+    background-color: #fff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transform: translateX(100%); /* Começa fora da tela */
+    transition: transform 0.4s ease-out;
     padding: 20px;
-    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
-.product-name {
-    font-size: 1.3em;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.cart-panel.open {
+    transform: translateX(0); /* Entra na tela */
 }
 
-/* -------------------- ESTILOS ESPECÍFICOS POR TIME -------------------- */
+.cart-panel h2 {
+    color: #4b0082;
+    border-bottom: 2px solid #ffaa33;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
 
-.product-card.karasuno .image-container { border-bottom-color: var(--karasuno-orange); }
-.product-card.karasuno .product-price { color: var(--karasuno-orange); }
-.product-card.karasuno .buy-button { background-color: var(--karasuno-orange); }
-.product-card.karasuno .buy-button:hover { background-color: var(--karasuno-black); color: white; }
-.product-card.karasuno:hover { box-shadow: 0 12px 30px rgba(244, 144, 48, 0.5); }
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #333;
+}
 
-.product-card.nekoma .image-container { border-bottom-color: var(--nekoma-red); }
-.product-card.nekoma .product-price { color: var(--nekoma-red); }
-.product-card.nekoma .buy-button { background-color: var(--nekoma-red); }
-.product-card.nekoma .buy-button:hover { background-color: var(--nekoma-highlight); color: white; }
-.product-card.nekoma:hover { box-shadow: 0 12px 30px rgba(204, 0, 0, 0.5); }
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    overflow-y: auto; /* Permite rolar a lista se for muito longa */
+    flex-grow: 1;
+}
 
-.product-card.aoba-johsai .image-container { border-bottom-color: var(--seijoh-blue); }
-.product-card.aoba-johsai .product-price { color: var(--seijoh-blue); }
-.product-card.aoba-johsai .buy-button { background-color: var(--seijoh-blue); }
-.product-card.aoba-johsai .buy-button:hover { background-color: #4A9A92; color: white; }
-.product-card.aoba-johsai:hover { box-shadow: 0 12px 30px rgba(107, 184, 174, 0.5); }
+.cart-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.9em;
+}
 
-.product-card.shiratorizawa .image-container { border-bottom-color: var(--shira-purple); }
-.product-card.shiratorizawa .product-price { color: var(--shira-purple); }
-.product-card.shiratorizawa .buy-button { background-color: var(--shira-purple); }
-.product-card.shiratorizawa .buy-button:hover { background-color: var(--shira-highlight); color: white; }
-.product-card.shiratorizawa:hover { box-shadow: 0 12px 30px rgba(118, 61, 96, 0.5); }
+.item-name {
+    font-weight: bold;
+    color: #333;
+}
 
-.product-card.fukurodani .image-container { border-bottom: 5px solid var(--fukuro-black); }
-.product-card.fukurodani { border: 3px solid var(--fukuro-gold); }
-.product-card.fukurodani .product-price { color: var(--fukuro-gold); text-shadow: 0 0 5px rgba(184, 134, 11, 0.8); }
-.product-card.fukurodani .buy-button { background-color: var(--fukuro-black); }
-.product-card.fukurodani .buy-button:hover { background-color: var(--fukuro-gold); color: var(--fukuro-black); box-shadow: 0 6px 15px rgba(184, 134, 11, 0.8); }
-.product-card.fukurodani:hover { box-shadow: 0 12px 30px rgba(64, 64, 64, 0.5); }
+.item-details {
+    text-align: right;
+}
 
+.cart-footer {
+    border-top: 2px solid #ffaa33;
+    padding-top: 15px;
+    margin-top: 15px;
+}
 
-/* -------------------- ESTILO DO BOTÃO COMUM -------------------- */
-.buy-button {
+.cart-footer p {
+    font-size: 1.4em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-btn {
+    background-color: #dc143c; /* Vermelho/Vinculo */
     color: white;
     border: none;
-    padding: 12px 30px;
-    border-radius: 50px; 
-    cursor: pointer;
+    padding: 15px;
+    width: 100%;
     font-size: 1.1em;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
-.buy-button:hover {
-    transform: scale(1.05);
+.empty-message {
+    text-align: center;
+    color: #888;
+    padding: 30px;
 }

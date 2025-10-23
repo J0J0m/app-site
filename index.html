@@ -1,213 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Action - Multiverso Haikyuu!!</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Action - Multiverso Haikyuu!!</title>
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
 
-    <header class="store-header">
-        <div class="cart-icon" title="Ver Carrinho">
-            🛒 <span id="cart-counter" class="counter">0</span>
-        </div>
-        <h1>Key Action: O Choque dos Times</h1>
-        <p>Figuras dinâmicas das principais escolas de Vôlei!</p>
-    </header>
+    <header class="store-header">
+        <div class="cart-icon" title="Ver Carrinho" onclick="toggleCart()">
+            🛒 <span id="cart-counter" class="counter">0</span>
+        </div>
+        <h1>Key Action: O Choque dos Times</h1>
+        <p>Figuras dinâmicas das principais escolas de Vôlei!</p>
+    </header>
 
-    <div class="product-grid">
+    <div class="product-grid">
 
-        <div class="product-card karasuno">
-            <div class="image-container">
-                <img src="imagens/Hinata Shouyou.jpg" alt="Figura de Shoyo Hinata" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Shoyo Hinata (Karasuno)</h3>
-                <p class="product-price">R$ 189,90</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+                <div class="product-card karasuno">
+            <div class="image-container">
+                <img src="imagens/Hinata Shouyou.jpg" alt="Figura de Shoyo Hinata" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Shoyo Hinata (Karasuno)</h3>
+                <p class="product-price">R$ 189,90</p>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Shoyo Hinata" data-price="189.90">COMPRAR</button>
+            </div>
+        </div>
 
-        <div class="product-card karasuno">
-            <div class="image-container">
-                <img src="imagens/▶ tobio kageyama nendoroid.jpeg" alt="Figura de Tobio Kageyama" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Tobio Kageyama (Karasuno)</h3>
-                <p class="product-price">R$ 219,90</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card karasuno">
+            <div class="image-container">
+                <img src="imagens/▶ tobio kageyama nendoroid.jpeg" alt="Figura de Tobio Kageyama" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Tobio Kageyama (Karasuno)</h3>
+                <p class="product-price">R$ 219,90</p>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Tobio Kageyama" data-price="219.90">COMPRAR</button>
+            </div>
+        </div>
 
-        <div class="product-card karasuno">
-            <div class="image-container">
-                <img src="imagens/Nishinoya! ☆.jpeg" alt="Figura de Yuu Nishinoya" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Yuu Nishinoya (Karasuno)</h3>
-                <p class="product-price">R$ 195,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
-        
-        <div class="product-card karasuno">
-            <div class="image-container">
-                <img src="imagens/_.jpeg" alt="Figura de Kei Tsukishima" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Kei Tsukishima (Karasuno)</h3>
-                <p class="product-price">R$ 175,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card karasuno">
+            <div class="image-container">
+                <img src="imagens/Nishinoya! ☆.jpeg" alt="Figura de Yuu Nishinoya" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Yuu Nishinoya (Karasuno)</h3>
+                <p class="product-price">R$ 195,00</p>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Yuu Nishinoya" data-price="195.00">COMPRAR</button>
+            </div>
+        </div>
+        
+        <div class="product-card karasuno">
+            <div class="image-container">
+                <img src="imagens/_.jpeg" alt="Figura de Kei Tsukishima" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Kei Tsukishima (Karasuno)</h3>
+                <p class="product-price">R$ 175,00</p>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Kei Tsukishima" data-price="175.00">COMPRAR</button>
+            </div>
+        </div>
 
-        <div class="product-card aoba-josai">
-            <div class="image-container">
-                <img src="imagens/Nendoroid Toru Oikawa.jpeg" alt="Figura de Toru Oikawa" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Toru Oikawa (Aoba Johsai)</h3>
-                <p class="product-price">R$ 239,90</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card aoba-josai">
+            <div class="image-container">
+                <img src="imagens/Nendoroid Toru Oikawa.jpeg" alt="Figura de Toru Oikawa" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Toru Oikawa (Aoba Johsai)</h3>
+                <p class="product-price">R$ 239,90</p>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Toru Oikawa" data-price="239.90">COMPRAR</button>
+            </div>
+        </div>
 
-        <div class="product-card aoba-josai">
-            <div class="image-container">
-                <img src="imagens/ꪆৎ hajime iwaizumi nendoroid.jpg" alt="Figura de Hajime Iwaizumi" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Hajime Iwaizumi (Aoba Johsai)</h3>
-                <p class="product-price">R$ 165,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
-        
-        <div class="product-card karasuno">
-            <div class="image-container">
-                <img src="imagens/download (5).jpg" alt="Figura de Tadashi Yamaguchi" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Tadashi Yamaguchi (karasuno)</h3>
-                <p class="product-price">R$ 155,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card aoba-josai">
+            <div class="image-container">
+                <img src="imagens/ꪆৎ hajime iwaizumi nendoroid.jpg" alt="Figura de Hajime Iwaizumi" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Hajime Iwaizumi (Aoba Johsai)</h3>
+                <p class="product-price">R$ 165,00</p>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Hajime Iwaizumi" data-price="165.00">COMPRAR</button>
+            </div>
+        </div>
+        
+        <div class="product-card karasuno">
+            <div class="image-container">
+                <img src="imagens/download (5).jpg" alt="Figura de Tadashi Yamaguchi" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Tadashi Yamaguchi (karasuno)</h3>
+                <p class="product-price">R$ 155,00</p>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Tadashi Yamaguchi" data-price="155.00">COMPRAR</button>
+            </div>
+        </div>
 
-        <div class="product-card karasuno">
-            <div class="image-container">
-                <img src="imagens/download (4).jpg" alt="Figura de Ryûnosuke Tanaka" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Ryûnosuke Tanaka (karasuno)</h3>
-                <p class="product-price">R$ 155,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card karasuno">
+            <div class="image-container">
+                <img src="imagens/download (4).jpg" alt="Figura de Ryûnosuke Tanaka" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Ryûnosuke Tanaka (karasuno)</h3>
+                <p class="product-price">R$ 155,00</p>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Ryûnosuke Tanaka" data-price="155.00">COMPRAR</button>
+            </div>
+        </div>
 
-        <div class="product-card nekoma">
-            <div class="image-container">
-                <img src="imagens/▶ tetsuro kuroo nendoroid.jpeg" alt="Figura de Tetsuro Kuroo" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Tetsuro Kuroo (Nekoma)</h3>
-                <p class="product-price">R$ 205,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card nekoma">
+            <div class="image-container">
+                <img src="imagens/▶ tetsuro kuroo nendoroid.jpeg" alt="Figura de Tetsuro Kuroo" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Tetsuro Kuroo (Nekoma)</h3>
+                <p class="product-price">R$ 205,00</p>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Tetsuro Kuroo" data-price="205.00">COMPRAR</button>
+            </div>
+        </div>
 
-        <div class="product-card nekoma">
-            <div class="image-container">
-                <img src="imagens/ꪆৎ kenma kozume nendoroid.jpeg" alt="Figura de Kozume Kenma" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Kozume Kenma (Nekoma)</h3>
-                <p class="product-price">R$ 225,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card nekoma">
+            <div class="image-container">
+                <img src="imagens/ꪆৎ kenma kozume nendoroid.jpeg" alt="Figura de Kozume Kenma" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Kozume Kenma (Nekoma)</h3>
+                <p class="product-price">R$ 225,00</p>
+            </div>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Kozume Kenma" data-price="225.00">COMPRAR</button>
+        </div>
 
-        <div class="product-card nekoma">
-            <div class="image-container">
-                <img src="imagens/download (1).jpg" alt="Figura de Morisuke Yaku" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Morisuke Yaku (Nekoma)</h3>
-                <p class="product-price">R$ 179,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card nekoma">
+            <div class="image-container">
+                <img src="imagens/download (1).jpg" alt="Figura de Morisuke Yaku" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Morisuke Yaku (Nekoma)</h3>
+                <p class="product-price">R$ 179,00</p>
+            </div>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Morisuke Yaku" data-price="179.00">COMPRAR</button>
+        </div>
 
-        <div class="product-card nekoma">
-            <div class="image-container">
-                <img src="imagens/orange Rouge Haikyu Lev Haiba Nendoroid Action Figure online kaufen _ eBay.jpg" alt="Figura de Lev Haiba" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Lev Haiba (Nekoma)</h3>
-                <p class="product-price">R$ 169,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card nekoma">
+            <div class="image-container">
+                <img src="imagens/orange Rouge Haikyu Lev Haiba Nendoroid Action Figure online kaufen _ eBay.jpg" alt="Figura de Lev Haiba" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Lev Haiba (Nekoma)</h3>
+                <p class="product-price">R$ 169,00</p>
+            </div>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Lev Haiba" data-price="169.00">COMPRAR</button>
+        </div>
 
-        <div class="product-card fukurodani">
-            <div class="image-container">
-                <img src="imagens/download.jpg" alt="Figura de Kotaro Bokuto" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Kotaro Bokuto (Fukurodani)</h3>
-                <p class="product-price">R$ 249,90</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card fukurodani">
+            <div class="image-container">
+                <img src="imagens/download.jpg" alt="Figura de Kotaro Bokuto" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Kotaro Bokuto (Fukurodani)</h3>
+                <p class="product-price">R$ 249,90</p>
+            </div>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Kotaro Bokuto" data-price="249.90">COMPRAR</button>
+        </div>
 
-        <div class="product-card fukurodani">
-            <div class="image-container">
-                <img src="imagens/Nendoroid Keiji Akaashi.jpg" alt="Figura de Keiji Akaashi" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">Keiji Akaashi (Fukurodani)</h3>
-                <p class="product-price">R$ 215,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
-        
-        <div class="product-card karasuno">
-            <div class="image-container">
-                <img src="imagens/download (2).jpg" alt="Figura de sugawara" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">sugawara (karasuno)</h3>
-                <p class="product-price">R$ 160,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+        <div class="product-card fukurodani">
+            <div class="image-container">
+                <img src="imagens/Nendoroid Keiji Akaashi.jpg" alt="Figura de Keiji Akaashi" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Keiji Akaashi (Fukurodani)</h3>
+                <p class="product-price">R$ 215,00</p>
+            </div>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Keiji Akaashi" data-price="215.00">COMPRAR</button>
+        </div>
+        
+        <div class="product-card karasuno">
+            <div class="image-container">
+                <img src="imagens/download (2).jpg" alt="Figura de sugawara" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">sugawara (karasuno)</h3>
+                <p class="product-price">R$ 160,00</p>
+            </div>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Koushi Sugawara" data-price="160.00">COMPRAR</button>
+        </div>
 
-         <div class="product-card karasuno">
-            <div class="image-container">
-                <img src="imagens/download (3).jpg" alt="Figura asahi azumane" class="product-image">
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">asahi azumane (karasuno)</h3>
-                <p class="product-price">R$ 215,00</p>
-                <button class="buy-button" onclick="addToCart()">COMPRAR</button>
-            </div>
-        </div>
+         <div class="product-card karasuno">
+            <div class="image-container">
+                <img src="imagens/download (3).jpg" alt="Figura asahi azumane" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">asahi azumane (karasuno)</h3>
+                <p class="product-price">R$ 215,00</p>
+            </div>
+                <button class="buy-button" onclick="addToCart(this)" data-name="Asahi Azumane" data-price="215.00">COMPRAR</button>
+        </div>
 
-    </div>
+    </div>
     
-    <script>
-        let cartCount = 0;
-        function addToCart() {
-            cartCount++;
-            document.getElementById('cart-counter').textContent = cartCount;
-            // Opcional: feedback visual de que o item foi adicionado
-            const cartIcon = document.querySelector('.cart-icon');
-            cartIcon.classList.add('flash-cart'); // Adiciona uma classe temporária para animação
-            setTimeout(() => {
-                cartIcon.classList.remove('flash-cart');
-            }, 500); // Remove a classe após 0.5s
-        }
-    </script>
+    <div id="cart-panel" class="cart-panel">
+        <h2>Seu Carrinho</h2>
+        <button class="close-btn" onclick="toggleCart()">X</button>
+        <ul id="cart-list" class="cart-list">
+            <li class="empty-message">Nenhum item no carrinho.</li>
+        </ul>
+        <div class="cart-footer">
+            <p>Total: <span id="cart-total">R$ 0,00</span></p>
+            <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+    
+    <script>
+        // CÓDIGO JAVASCRIPT SERÁ INSERIDO AQUI NA PRÓXIMA ETAPA
+    </script>
 </body>
 </html>

@@ -1,13 +1,21 @@
 <script>
-    // Armazena a lista de produtos no carrinho
-    let cart = [];
+    let cart = []; // A variável do carrinho pode ficar fora
+    
+    // Variáveis que vão armazenar os elementos HTML
+    let cartCounterElement, cartListElement, cartTotalElement, cartPanelElement, cartIconElement;
 
-    // Referências aos elementos HTML
-    const cartCounterElement = document.getElementById('cart-counter');
-    const cartListElement = document.getElementById('cart-list');
-    const cartTotalElement = document.getElementById('cart-total');
-    const cartPanelElement = document.getElementById('cart-panel');
-    const cartIconElement = document.querySelector('.cart-icon');
+    // Esta função garante que o código só rode depois que o HTML estiver carregado
+    window.onload = function() {
+        // Referências aos elementos HTML (agora dentro do evento onload)
+        cartCounterElement = document.getElementById('cart-counter');
+        cartListElement = document.getElementById('cart-list');
+        cartTotalElement = document.getElementById('cart-total');
+        cartPanelElement = document.getElementById('cart-panel');
+        cartIconElement = document.querySelector('.cart-icon');
+        
+        // Inicializa a exibição do carrinho
+        updateCartDisplay();
+    };
 
     /**
      * Adiciona um produto ao carrinho.
@@ -18,7 +26,6 @@
         const productName = buttonElement.getAttribute('data-name');
         const price = parseFloat(buttonElement.getAttribute('data-price'));
 
-        // Se o preço não for válido (NaN), interrompe a função para evitar erros
         if (isNaN(price)) {
             console.error("Erro: Preço inválido no data-price para " + productName);
             return;
@@ -42,10 +49,12 @@
         updateCartDisplay();
         
         // 4. Feedback visual (animação)
-        cartIconElement.classList.add('flash-cart');
-        setTimeout(() => {
-            cartIconElement.classList.remove('flash-cart');
-        }, 500);
+        if (cartIconElement) { // Verifica se o elemento foi encontrado antes de tentar animar
+            cartIconElement.classList.add('flash-cart');
+            setTimeout(() => {
+                cartIconElement.classList.remove('flash-cart');
+            }, 500);
+        }
     }
 
     /**
@@ -55,17 +64,16 @@
         let totalItems = 0;
         let totalPrice = 0;
         
-        // Limpa a lista existente
+        if (!cartListElement) return; // Sai da função se o elemento não foi encontrado
+        
         cartListElement.innerHTML = ''; 
 
         if (cart.length === 0) {
-            // Se o carrinho estiver vazio, mostra a mensagem
             const li = document.createElement('li');
             li.className = 'empty-message';
             li.textContent = 'Nenhum item no carrinho.';
             cartListElement.appendChild(li);
         } else {
-            // Itera sobre o array do carrinho e cria os elementos <li>
             cart.forEach(item => {
                 const itemTotal = item.price * item.quantity;
                 
@@ -84,24 +92,20 @@
             });
         }
 
-        // Atualiza o contador de itens no cabeçalho
-        cartCounterElement.textContent = totalItems;
-        
-        // Atualiza o total
-        cartTotalElement.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
+        if (cartCounterElement) cartCounterElement.textContent = totalItems;
+        if (cartTotalElement) cartTotalElement.textContent = `R$ ${totalPrice.toFixed(2).replace('.', ',')}`;
     }
 
     /**
      * Abre e fecha o painel lateral do carrinho.
      */
     function toggleCart() {
+        if (!cartPanelElement) return; // Sai da função se o elemento não foi encontrado
+        
         cartPanelElement.classList.toggle('open');
-        // Garante que o display seja atualizado sempre que for aberto
+        
         if (cartPanelElement.classList.contains('open')) {
              updateCartDisplay();
         }
     }
-    
-    // Inicializa a exibição do carrinho ao carregar a página
-    updateCartDisplay(); 
 </script>
